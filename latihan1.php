@@ -8,12 +8,13 @@ $result = mysqli_query($conn, "SELECT * FROM karyawan");
 // <!-- Ubahdata ke dalam array -->
 // $row = mysqli_fetch_row($result); // array numerik
 // $row = mysqli_fetch_assoc($result) // array associative
-// $row = mysqli_fetch_all($result) // keduanya
+// $row = mysqli_fetch_array($result) // keduanya
 $rows = [];
 while ($row = mysqli_fetch_assoc($result)) {
     $rows[] = $row;
 }
 // <!-- Tampung ke variable karyawan -->
+$karyawan = $rows;
 
 ?>
 <!DOCTYPE html>
@@ -34,19 +35,21 @@ while ($row = mysqli_fetch_assoc($result)) {
             <th>Nama</th>
             <th>Email</th>
             <th>Bagian</th>
-            <th>Departemen</th>
             <th>Aksi</th>
         </tr>
+
+        <?php $i = 1;
+        foreach($karyawan as $kry) : ?>
         <tr>
-            <td>1</td>
-            <td><img src="../app-karyawan/img/epl.png" alt=""></td>
-            <td>123456</td>
-            <td>Saeful Ardi</td>
-            <td>saeful.ardi@test.com</td>
-            <td>Produksi</td>
-            <td>Produksi</td>
+            <td><?= $i++?></td>
+            <td><img src="img/<?= $kry['gambar'] ?>" width="100" ></td>
+            <td> <?= $kry['nik'] ?> </td>
+            <td> <?= $kry['nama'] ?> </td>
+            <td> <?= $kry['email'] ?> </td>
+            <td> <?= $kry['bagian'] ?> </td>
             <td><a href="">Edit</a> | <a href="">Hapus</a></td>
         </tr>
+        <?php endforeach; ?>
     </table>
 </body>
 </html>
