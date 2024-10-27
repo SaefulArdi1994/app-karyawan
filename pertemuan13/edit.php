@@ -47,7 +47,7 @@ if(isset($_POST['edit'])) {
 <body>
 
 <h3>Edit Karyawan</h3>
-    <form action="" method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?= $karyawan['id'];?>">
         <ul>
             <li>
@@ -75,10 +75,12 @@ if(isset($_POST['edit'])) {
                 </label>
             </li>
             <li>
+                <input type="hidden" name="gambar_lama" value="<? $karyawan['gambar']?>">
                 <label for="">
                     Gambar :
-                    <input type="text" name="gambar" required value="<?= $karyawan['gambar']?>">
+                    <input type="file" name="gambar" class="gambar" onchange="previewImage()">
                 </label>
+                <img src="image/<?= $karyawan['gambar']?>" width="120" style="display: block;" class="img-preview" alt="">
             </li>
             <li>
                 <button type="submit" name="edit">
@@ -87,5 +89,6 @@ if(isset($_POST['edit'])) {
             </li>
         </ul>
     </form>
+    <script src="js/script.js"></script>
 </body>
 </html>

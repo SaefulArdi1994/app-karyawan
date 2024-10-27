@@ -35,7 +35,7 @@ $karyawan = query("SELECT * FROM karyawan WHERE id = $id");
 <body>
     <h3>Detail Karyawan</h3>
     <ul>
-        <li><img src="../img/<?= $karyawan['gambar']?>" width="100" alt=""></li>
+        <li><img src="image/<?= $karyawan['gambar']?>" width="200" alt=""></li>
         <li>Nik : <?= $karyawan['nik']?></li>
         <li>Nama : <?= $karyawan['nama']?></li>
         <li>Email : <?= $karyawan['email']?></li>
