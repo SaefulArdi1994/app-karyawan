@@ -64,7 +64,7 @@ if (isset($_POST['cari'])) {
             foreach($karyawan as $kry) : ?>
             <tr>
                 <td><?= $i++?></td>
-                <td><img src="../img/<?= $kry['gambar'] ?>" width="100" ></td>
+                <td><img src="image/<?= $kry['gambar'] ?>" width="100" ></td>
                 <td> <?= $kry['nik'] ?> </td>
                 <td> <?= $kry['nama'] ?> </td>
                 <td>
