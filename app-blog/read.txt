@@ -1,0 +1,9 @@
+Database
+
+db-blog
+
+id
+judul
+kategori
+konten
+waktu
