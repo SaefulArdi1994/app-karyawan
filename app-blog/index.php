@@ -29,6 +29,8 @@ $blogs = query("SELECT * FROM blog" );
 
     <main>
 
+        <a href="add.php">Artikel Baru</a>
+
         <form action="">
             <input type="text">
             <button>Search</button>

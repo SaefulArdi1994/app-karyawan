@@ -42,7 +42,7 @@ $blog = query("SELECT * FROM blog WHERE id = $id" );
             <img src="img/<?= $blog['gambar']?>" alt="">
             <h2><?= $blog['judul'] ?></h2>
             <span><h4><?= $blog['waktu'] ?></h4></span>
-            <td><a href="">Edit</a> | <a href="">Hapus</a></td>
+            <td><a href="edit.php?id=<?= $blog['id'];?>">Edit</a> | <a href="">Hapus</a></td>
 
             <p> <?= $blog['konten'] ?></p>
             <p><?= $blog['kategori'] ?></p>

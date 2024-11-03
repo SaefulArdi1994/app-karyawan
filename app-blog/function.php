@@ -24,4 +24,42 @@ function query($query)
     return $rows;
 }
 
+function tambah ($data)
+{
+    $conn = koneksi();
+
+    $judul = htmlspecialchars($data['judul']);
+    $kategori = htmlspecialchars($data['kategori']);
+    $konten = htmlspecialchars($data['konten']);
+    $gambar = htmlspecialchars($data['gambar']);
+
+    $query = "INSERT INTO blog VALUES (null,'$judul','$kategori','$konten','$gambar', CURRENT_TIMESTAMP)";
+
+    mysqli_query($conn, $query);
+    echo mysqli_error($conn);
+    return mysqli_affected_rows($conn);
+}
+
+function edit($data)
+{
+    $conn = koneksi();
+
+    $id = $data['id'];
+    $judul = htmlspecialchars($data['judul']);
+    $kategori = htmlspecialchars($data['kategori']);
+    $konten = htmlspecialchars($data['konten']);
+    $gambar = htmlspecialchars($data['gambar']);
+
+    $query = "UPDATE blog SET 
+                judul = '$judul',
+                kategori = '$kategori',
+                konten = '$konten',
+                gambar = '$gambar'
+                WHERE id = $id
+            ";
+
+    mysqli_query($conn, $query) or die(mysqli_error($conn));
+    return mysqli_affected_rows($conn);
+}
+
 ?>
