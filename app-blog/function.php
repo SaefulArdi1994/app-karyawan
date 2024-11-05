@@ -62,4 +62,11 @@ function edit($data)
     return mysqli_affected_rows($conn);
 }
 
+function delete($id)
+{
+    $conn = koneksi();
+    mysqli_query($conn, "DELETE FROM blog WHERE id = $id") or die(mysqli_error($conn));
+    return mysqli_affected_rows($conn);
+}
+
 ?>
