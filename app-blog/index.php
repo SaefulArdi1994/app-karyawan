@@ -4,6 +4,11 @@ require 'function.php';
 
 $blogs = query("SELECT * FROM blog" );
 
+// Ketika tombol cari di klik
+if (isset($_POST['search'])) {
+    $blogs = search($_POST['keyword']);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -29,12 +34,24 @@ $blogs = query("SELECT * FROM blog" );
 
     <main>
 
+        
+
         <a href="add.php">Artikel Baru</a>
 
-        <form action="">
-            <input type="text">
-            <button>Search</button>
+        <form action="" method="POST">
+            <input type="text" name="keyword" size="30" placeholder="Masukan keyword pencarian" autocomplete="off" autofocus>
+            <button type="submit" name="search">Search</button>
         </form>
+
+        <?php if (empty($blogs)) : ?>
+
+            <tr>
+                <td colspan="5" align="center">
+                    <p>Artikel tidak ditemukan!</p>
+                </td>
+            </tr>
+
+        <?php endif ; ?>
 
         <?php $i = 1; foreach($blogs as $blog) : ?>
 
