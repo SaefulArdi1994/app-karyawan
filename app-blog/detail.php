@@ -39,7 +39,7 @@ $blog = query("SELECT * FROM blog WHERE id = $id" );
         </form>
 
         <section>
-            <img src="img/<?= $blog['gambar']?>" alt="">
+            <img src="img/<?= $blog['gambar']?>" width="200" alt="">
             <h2><?= $blog['judul'] ?></h2>
             <span><h4><?= $blog['waktu'] ?></h4></span>
             <td>
